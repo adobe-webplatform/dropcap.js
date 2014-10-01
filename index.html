@@ -1,0 +1,121 @@
+<!--
+Copyright 2014 Adobe Systems Inc.;
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!doctype html>
+<html>
+	<head>
+	<title>dropcap.js Intro</title>
+	<meta charset="utf-8"> 
+	<style>
+		html {
+			font-family: Georgia, serif;
+			font-size: 32px;
+		}
+
+		@media only screen and (max-device-width : 400px) {
+			html {
+				font-size: 16px;
+			}
+		}
+
+		@media only screen and (min-device-width : 400px) and (max-device-width : 480px) {
+			html {
+				font-size: 24px;
+			}
+		}
+
+		.adobe-redtag-logo {
+			position: fixed;
+			top: 0;
+			left: 39px;
+		}
+
+		.main {
+			width: 15rem;
+			margin: 5em auto 2rem auto;
+			text-align: justify;
+			}
+
+		.definition {
+			font-family: "Times New Roman";
+		}
+
+		.main .meta {
+			margin: 0;
+			font-family: "Proxima Nova","Gill Sans",Corbel,Arial,sans-serif;
+			font-size: 0.5rem;
+			font-weight: bold;
+			text-align: right;
+		}
+
+		#drop-cap {
+			font-family: Baskerville;
+			margin-right: 0.05em;
+		}
+
+		.demo-link {
+			display: block;
+			width: 10rem;
+			margin: 3rem auto 0 auto;
+			padding: 0.5rem;
+			border-radius: 0.2rem;
+			background-color: #1F8DD6;
+			color: white;
+			text-align: center;
+			text-decoration: none;
+			font-family: sans-serif;
+			font-weight: bold;
+			font-size: 0.6rem;
+		}
+
+		.demo-link:hover {
+			background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+		}
+
+	</style>
+	</head>
+	<body>
+		<img class="adobe-redtag-logo" src="Adobe_Red_Tag_Logo.png" />
+		<a href="https://github.com/sylvain-galineau"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
+		<section class="main">
+			<p class="definition"><span id="drop-cap">D</span>ECORATIVE initials, also known as drop capitals or &ldquo;drop caps&rdquo;, should be positioned on a baseline of the adjoining text; they should also be tall enough to reach the cap height of the first line of text.</p>
+
+			<p class="meta">Drop cap: <span id="dropcap-choice">Baskerville</span></p>
+			<p class="meta">Paragraph: Times New Roman</p>
+
+		</section>
+
+		<a class="demo-link" href="./dropcap-demo.html">Try the interactive demo</a>
+		
+
+		<script src="dropcap.min.js"></script>
+		<script>
+			var dropcap = document.querySelector("#drop-cap");
+			chooseDropcapFamily(dropcap);
+			window.Dropcap.layout(dropcap, 3);
+
+			function chooseDropcapFamily(element) {
+				var dropcapFamilies = [ 'Baskerville', 'Bodoni', 'Georgia', 'Times New Roman' ];
+				var choice = dropcapFamilies[Math.ceil(Math.random()*(dropcapFamilies.length-1))];
+				element.style.fontFamily = choice;
+				setElementContentById('dropcap-choice', choice);
+			}
+
+			function setElementContentById(id, c) {
+				document.getElementById(id).textContent = c;
+			}
+		</script>
+	</body>
+</html>
