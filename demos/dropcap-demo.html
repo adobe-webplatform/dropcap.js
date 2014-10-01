@@ -1,0 +1,301 @@
+<!--
+Copyright 2014 Adobe Systems Inc.;
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!doctype html>
+<html>
+<head>
+    <title>Interactive dropcap.js demo page</title>
+    <meta charset="utf-8"/>
+    <style>
+        html, body { margin:0; padding:0;}
+        .test-paragraph {
+            width: 600px;
+            margin-top: 1em;
+            margin-left: 96px;
+            font-family: 'Times New Roman';
+            font-size: 32px;
+            line-height: 1.2;
+            text-align: justify;
+        }
+
+        .adobe-redtag-logo {
+            position: fixed;
+            top: 0;
+            left: 39px;
+        }
+
+        .test-dropcap {
+            font-family: 'Cochin';
+            margin-right: 0.05em;
+        }
+
+        #controls {
+            position: fixed;
+            top: 1em;
+            right: 1em;
+            padding: 0.5em;
+            border: 1px dotted black;
+            background-color: white;
+            box-shadow: -10px 10px 15px #708090;
+
+            font-family: Consolas, monospace;
+            font-size: 19px;
+        }
+
+        #controls .control-group {
+            margin-bottom: .5em;
+        }
+
+        .control-group > legend {
+            font-weight: bold;
+        }
+
+        #controls p {
+            padding: 0;
+            margin: .25em;
+
+        }
+
+        #controls label {
+            display: inline-block;
+            width: 16em;
+        }
+
+        #controls .value {
+            display: inline-block;
+            width: 2em;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <img class="adobe-redtag-logo" src="Adobe_Red_Tag_Logo.png" />
+    <section id="controls">
+        <fieldset class="control-group">
+            <legend>Drop cap</legend>
+            <p>
+                <label for="dcap-font">Font family: </label>
+                <select id="dcap-font" value="Cochin">
+                    <option>Adobe Caslon Pro</option>
+                    <option>Adobe Garamond Pro</option>
+                    <option>Arial</option>
+                    <option>Arial Black</option>
+                    <option>Baskerville</option>
+                    <option>Bodoni</option>
+                    <option selected>Cochin</option>
+                    <option>Century</option>
+                    <option>Century Gothic</option>
+                    <option>Didot</option>
+                    <option>Futura</option>
+                    <option>Gabriola</option>
+                    <option>Garamond</option>
+                    <option>Georgia</option>
+                    <option>Gill Sans</option>
+                    <option>Helvetica</option>
+                    <option>Helvetica Neue</option>
+                    <option>Impact</option>
+                    <option>Lucida Grande</option>
+                    <option>Lucida Sans</option>
+                    <option>Marion</option>
+                    <option>Menlo</option>
+                    <option>Minion Pro</option>
+                    <option>Optima</option>
+                    <option>Palatino</option>
+                    <option>Proxima Nova</option>
+                    <option>Tahoma</option>
+                    <option>Times</option>
+                    <option>Times New Roman</option>
+                    <option>Trykker</option>
+                    <option>Verdana</option>
+                </select>
+            </p>
+            <p>
+                <label for="dcap-height">Height: </label>
+                <input id="dcap-height" type="range" min="1" max="8" step="1" value="4">
+                <span  class="value" id="dcap-height-val"></span>
+            </p>
+            <p>
+                <label for="dcap-baseline-pos">Baseline position: </label>
+                <input id="dcap-baseline-pos" type="range" min="1" max="8" step="1" value="4" disabled>
+                <span  class="value" id="dcap-baseline-pos-val"></span>
+            </p>
+            <p>
+                <label for="dcap-lock-height-to-pos">Synch height with position: </label>
+                <input id="dcap-lock-height-to-pos" type="checkbox" checked>
+            </p>
+            <p>
+                <label for="dcap-show-float">Show container: </label>
+                <input id="dcap-show-float" type="checkbox">
+            </p>
+        </fieldset>
+        <fieldset class="control-group">
+            <legend>Paragraph</legend>
+            <p>
+                <label for="para-font">Font family: </label>
+                <select id="para-font" value="Times New Roman">
+                    <option>Adobe Caslon Pro</option>
+                    <option>Adobe Garamond Pro</option>
+                    <option>Arial</option>
+                    <option>Arial Black</option>
+                    <option>Baskerville</option>
+                    <option>Bodoni</option>
+                    <option>Cochin</option>
+                    <option>Century</option>
+                    <option>Century Gothic</option>
+                    <option>Didot</option>
+                    <option>Futura</option>
+                    <option>Gabriola</option>
+                    <option>Garamond</option>
+                    <option>Georgia</option>
+                    <option>Gill Sans</option>
+                    <option>Helvetica</option>
+                    <option>Helvetica Neue</option>
+                    <option>Impact</option>
+                    <option>Lucida Grande</option>
+                    <option>Lucida Sans</option>
+                    <option>Marion</option>
+                    <option>Menlo</option>
+                    <option>Minion Pro</option>
+                    <option>Optima</option>
+                    <option>Palatino</option>
+                    <option>Proxima Nova</option>
+                    <option>Tahoma</option>
+                    <option>Times</option>
+                    <option selected>Times New Roman</option>
+                    <option>Verdana</option>
+                </select>
+            </p>
+            <p>
+                <label for="para-font-size">Font size: </label>
+                <input id="para-font-size" type="range" min="12" max="36" step="2" value="32">
+                <span  class="value" id="para-font-size-val"></span>
+                
+            </p>
+            <p>
+                <label for="para-line-height">Line height: </label>
+                <input id="para-line-height" type="range" min="1" max="1.7" step="0.1" value="1.2">
+                <span  class="value" id="para-line-height-val"></span>
+            </p>
+        </fieldset>
+    </section>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">A</span>NGUS ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">B</span>ACON ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">C</span>APICOLA ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">D</span>RUMSTICK ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">E</span>YE ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">F</span>lank ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">G</span>ROUND ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">H</span>AMBURGER ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">I</span>TALIAN ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">J</span>ERKY ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">K</span>OBE ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">L</span>AMB ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">M</span>IGNON ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">N</span>ACHOS ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">O</span>NGLET ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">P</span>ROSCIUTTO ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">Q</span>UAIL ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">R</span>OAST ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">S</span>TEAK ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">T</span>ENDERLOIN ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">U</span>SDA ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">V</span>EAL ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">W</span>AGYU ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">X</span>AVIER ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">Y</span>AK ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <p class="test-paragraph">
+        <span class="test-dropcap">Z</span>EBRA ipsum dolor sit amet shoulder sausage ham meatball tenderloin. Porchetta shoulder beef tri-tip prosciutto, jowl filet mignon rump. Capicola tenderloin flank pork chop meatball porchetta pork belly chicken boudin shank strip steak chuck bacon beef pastrami. Kielbasa ribeye tri-tip short ribs spare ribs shank corned beef. Flank ham hock beef ribs tenderloin biltong filet mignon drumstick bresaola. Flank fatback brisket turducken.
+    </p>
+
+    <script src="../dropcap.min.js"></script>
+    <script src="./dropcap-demo.js"></script>
+</body>
+</html>
+
