@@ -20,7 +20,7 @@ This is required because the CSS Object Model does not expose write access to th
 
 **Then**, once you have updated your markup, simply include the script in your page.
    
-    <script src='./dropcap.js'></script>
+    <script src='./dropcap.min.js'></script>
 
 The script defines the `window.Dropcap.layout` method; you call it like so:
 
@@ -34,6 +34,15 @@ The `dropcapRef` parameter may be one of:
 
 * An individual HTMLElement object 
 * A NodeList e.g. obtained from `querySelectorAll()` or a property such as `Node.childNodes` 
+
+For instance:
+
+		<script src='./dropcap.min.js'></script>
+		<script>
+			var dropcaps = document.querySelectorAll(".drop-cap");
+    		window.Dropcap.layout(dropcaps, 3);
+    	</script>
+		
  
 The specified element(s) will be floated, sized and positioned based on the values you specify for `baselinePos` and `heightInLines`.
 
