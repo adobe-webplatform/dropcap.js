@@ -32,6 +32,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         header: copyright+IIFEopen,
+        copyright: copyright,
         footer: IIFEclose,
 
         concat: {
