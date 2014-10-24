@@ -39,7 +39,7 @@ For instance:
 
 		<script src='./dropcap.min.js'></script>
 		<script>
-			var dropcaps = document.querySelectorAll(".drop-cap");
+			var dropcaps = document.querySelectorAll(".dropcap");
     		window.Dropcap.layout(dropcaps, 3);
     	</script>
 		
