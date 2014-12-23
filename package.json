@@ -10,7 +10,7 @@
   "authors": [
     "Sylvain Galineau"
   ],
-  "license": "BSD",
+  "license": "Apache-2.0",
   "readmeFilename": "README.md",
   "devDependencies": {
     "grunt": "^0.4.5",

@@ -10,7 +10,7 @@
   "authors": [
     "Sylvain Galineau"
   ],
-  "license": "BSD",
+  "license": "Apache--2.0",
   "readmeFilename": "README.md",
   "main": "dropcap.js",
   "moduleType": [
