@@ -74,6 +74,7 @@ The properties of the options object expose general runtime configuration featur
 **runEvenIfInitialLetterExists**
 
 Default value: `true`
+
 When this option is true, `Dropcap.layout` will run whether or not the browser supports the `initial-letter` property. When set to false, `Dropcap.layout` will first check for the presence of `initial-letter` in the CSSOM and abort if it is found. Prefixed variations are checked.
 
 
