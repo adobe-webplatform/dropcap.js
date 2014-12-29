@@ -67,6 +67,15 @@ The `heightInLines` parameter must have a value of 1 or higher. It specifies the
 
 The `baselinePos` parameter is optional; when specified, its value should be 1 or higher. It defines which baseline of its parent element the drop cap's own baseline must align with. For instance, a value of 4 means 'align the drop cap's baseline with the baseline of the paragraph's fourth line'. By default, `baselinePos` is the same as `heightInLines`, which makes the drop cap extend from the baseline of the `baselinePos`-th line to the cap line of the first line. (This is the most common use-case). When `baselinePos` is smaller than `heightInLines`, the result is that of a 'raised cap' as the top of the drop cap will be a number of lines above the first line of the paragraph.
 
+### The Dropcap.options object
+
+The properties of the options object expose general runtime configuration features of dropcap.js.
+
+**runEvenIfInitialLetterExists**
+
+Default value: `true`
+When this option is true, `Dropcap.layout` will run whether or not the browser supports the `initial-letter` property. When set to false, `Dropcap.layout` will first check for the presence of `initial-letter` in the CSSOM and abort if it is found. Prefixed variations are checked.
+
 
 ## Building dropcap.js
 

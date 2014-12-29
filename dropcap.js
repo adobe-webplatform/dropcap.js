@@ -273,8 +273,43 @@ function layoutDropcap(dropcapElement, heightInLines, baselinePos) {
         
 }
 
+function getCSSPropertyName(property) {
+    var _supportElement = (window.document.body)?window.document.body:document.createElement('div');
+    function _supported(p) {
+        return p in _supportElement.style;
+    }
+
+    // Check for unprefixed first...
+    if (_supported(property)) {
+        return property;
+    }
+
+    // ...then look for prefixed version...
+    var prefix = ['-webkit-', '-moz-', '-ms-', '-o'];
+    for (var i=0; i < prefix.length; i++) {
+        var name = prefix[i]+property; 
+        if (_supported(name)) {
+            return name;
+        }
+    }
+
+    return null;
+}
+
 window.Dropcap = {
+   
+    options: {
+        runEvenIfInitialLetterExists: true,
+    },
+
     layout: function(dropcapRef, heightInLines, baselinePos) {
+        if (this.options.runEvenIfInitialLetterExists == false) {
+            var initialLetter = getCSSPropertyName('initial-letter');
+            if (initialLetter) {
+                return;
+            }
+        }
+
         if (heightInLines < 1 || (baselinePos && baselinePos < 1)) {
             throw new RangeError("Dropcap.layout expects the baseline position and height to be 1 or above");
         }
