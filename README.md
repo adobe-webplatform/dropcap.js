@@ -4,7 +4,7 @@ dropcap.js
 dropcap.js makes beautiful drop caps easy for the web. Try it out at [http://webplatform.adobe.com/dropcap.js/](http://webplatform.adobe.com/dropcap.js/)
 
 ## Why
-Though drop caps are very common in magazines and books, they remain rare on the web. We believe this is because doing it right simply and reliably is too difficult. A simple CSS float:left on a ::first-letter pseudo-element is not enough, as this [tumblr][tumblr] shows.
+Though drop caps are very common in magazines and books, they remain rare on the web. We believe this is because doing it right simply and reliably is too difficult. A simple CSS float:left on a ::first-letter pseudo-element is not enough, as this [tumblr][tumblr] shows. This [blog post][http://blogs.adobe.com/webplatform/2014/10/02/drop-caps-are-beautiful/] explains some of the challenges of defining drop caps in CSS today.
 
 The CSS Working Group is currently specifying a [new property for drop cap layout][initial-letter]. Until this makes it into all our favorite browsers we wanted to make it work with today's platform. 
 
@@ -99,6 +99,8 @@ Please let us know if you have any feedback. If you run into any problems, you c
 [node]: http://nodejs.org
 [npm]: http://www.npmjs.org
 [grunt]: http://gruntjs.com
+[blog]: [http://blogs.adobe.com/webplatform/2014/10/02/drop-caps-are-beautiful/]
 [new-issue]: https://github.com/adobe-webplatform/dropcap.js/issues/new
 [twitter]: http://twitter.com/adobeweb
+
 
