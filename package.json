@@ -1,5 +1,5 @@
 {
-  "name": "dropcap",
+  "name": "dropcap.js",
   "version": "1.0.0",
   "description": "Beautiful drop caps for the web",
   "homepage": "https://github.com/adobe-webplatform/dropcap.js",
@@ -7,8 +7,11 @@
     "type": "git",
     "url": "git@github.com:adobe-webplatform/dropcap.git"
   },
+  "bugs": {
+    "url": "https://github.com/adobe-webplatform/dropcap.js/issues"
+  },
   "authors": [
-    "Sylvain Galineau"
+    "Sylvain Galineau <galineau@adobe.com>"
   ],
   "license": "Apache-2.0",
   "readmeFilename": "README.md",
