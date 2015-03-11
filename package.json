@@ -2,6 +2,7 @@
   "name": "dropcap.js",
   "version": "1.0.0",
   "description": "Beautiful drop caps for the web",
+  "main": "./dropcap.js",
   "homepage": "https://github.com/adobe-webplatform/dropcap.js",
   "repository": {
     "type": "git",
