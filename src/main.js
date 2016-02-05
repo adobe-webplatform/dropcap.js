@@ -27,7 +27,7 @@ function getCSSPropertyName(property) {
     // ...then look for prefixed version...
     var prefix = ['-webkit-', '-moz-', '-ms-', '-o'];
     for (var i=0; i < prefix.length; i++) {
-        var name = prefix[i]+property; 
+        var name = prefix[i]+property;
         if (_supported(name)) {
             return name;
         }
@@ -36,8 +36,16 @@ function getCSSPropertyName(property) {
     return null;
 }
 
-window.Dropcap = {
-   
+var global;
+if (typeof window !== 'undefined') {
+  global = window;
+} else if (typeof exports !== 'undefined') {
+  global = exports;
+} else {
+  global = this;
+}
+global.Dropcap = {
+
     options: {
         runEvenIfInitialLetterExists: true,
     },
