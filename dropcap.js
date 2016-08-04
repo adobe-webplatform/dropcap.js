@@ -217,7 +217,12 @@ function layoutDropcap(dropcapElement, heightInLines, baselinePos) {
         var dcapFontSizeInPx = (dcapHeightInPx/dcapCapHeightRatio); 
       
         dcap.dcapjs = true;
-        dcap.style.cssFloat = "left";
+        if (dcapCSS.direction=='rtl') {
+          dcap.style.cssFloat = "right";
+        }
+        else {
+          dcap.style.cssFloat = "left";
+        }
         dcap.style.padding = ZEROPX;
         dcap.style.fontSize = toPxLength(dcapFontSizeInPx);  
         dcap.style.lineHeight = ZEROPX;
