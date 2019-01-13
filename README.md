@@ -1,7 +1,7 @@
 dropcap.js
 ===========
 
-dropcap.js makes beautiful drop caps easy for the web. Try it out at [http://webplatform.adobe.com/dropcap.js/](http://webplatform.adobe.com/dropcap.js/)
+dropcap.js makes beautiful drop caps easy for the web. Try it out at [https://adobe-webplatform.github.io/dropcap.js/](https://adobe-webplatform.github.io/dropcap.js/)
 
 ## Why
 Though drop caps are very common in magazines and books, they remain rare on the web. We believe this is because doing it right simply and reliably is too difficult. A simple CSS float:left on a ::first-letter pseudo-element is not enough, as this [tumblr][tumblr] shows. This [blog post][blog] explains some of the challenges of defining drop caps in CSS today.
